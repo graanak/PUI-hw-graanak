@@ -1,0 +1,250 @@
+/* sizing the logo at the top left */
+.logo{
+    width: 160px;
+    height: 160px;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* creating the black line at the top */
+.header {
+    width: auto;
+    height: 3px;
+    background-color: black;
+}
+
+.header-short {
+    width: 500px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: black;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* bolded word option */
+.product-label {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* normal body text */
+.normie {
+    text-align: center;
+}
+
+.small-underline {
+    font-size:x-small;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* large sized body text */
+.normie-large {
+    text-align: center;
+    font-size: larger;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+.single-roll{
+    width: 500px;
+    height:500px;
+    margin: 0 auto;
+    display: block;
+    border: 4px solid rgb(188, 106, 0);
+}
+
+.caption-center {
+    text-align: center;
+}
+
+/* -------------------roll option unit------------------------ */
+
+.roll-option {
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.roll-pic {
+    width: 80%;
+    height:80%;
+    margin: 0 auto;
+    border: 4px solid rgb(188, 106, 0);
+    display: block;
+}
+
+.roll-caption {
+    width: 80%;
+    text-align: left;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.roll-option:hover {
+    background-color: rgb(222, 178, 144);
+}
+
+.product-box {
+    width: 100px;
+    height: 20px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.product-box:hover {
+    background-color: rgb(222, 178, 144);
+}
+
+/* ----------------------single roll box------------------- */
+
+.roll-box {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.roll-1 {
+    width: 300px;
+    height: 300px;
+    border: 4px solid rgb(188, 106, 0);
+    object-fit: fill;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* ----------------dropdown menu------------------------------- */
+
+.detail-description {
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.detail-text-1 {
+    text-align: left;
+    margin: 0, auto;
+    display: block;
+    margin-bottom: 50px;
+}
+
+.detail-text-2 {
+    text-align: left;
+    margin: 0, auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.detail-button {
+    width: 200px;
+    height: 25px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border: 3px solid black;
+}
+
+
+.detail-add-cart {
+    width: 180px;
+    height: 25px;
+    margin: 60px auto 0 auto ;
+    border: 3px solid black;
+}
+
+.cart-text {
+    margin: 0 auto;
+    align: left;
+    font-weight: bold;
+}
+
+
+
+/* ------------shopping cart picture and text formats------------ */
+.roll-shop-box {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.roll-shop-pic {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    border: 4px solid rgb(188, 106, 0);
+    display: block;
+}
+
+.roll-shop-caption {
+    text-align:center;
+}
+
+/* -----------------checkout button-------------------------- */
+
+
+
+.button {
+    width: 100px;
+    height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid black;
+    padding-top: 5px;
+}
+
+.button:hover {
+    background-color: rgb(222, 178, 144);
+}
+
+/* --------------dropdown button------------------ */
+
+.dd-button{
+    width: 200px;
+    height: 25px;
+    text-align: left;
+    margin: 0 auto;
+    border: 3px solid black;
+
+}
+
+.dropdwn {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdwn-box {
+    background-color: white;
+    width: 200px;
+    height: 100px;
+}
+
+.dd-links {
+    color: black;
+    padding: 10px 10px;
+    display: block;
+}
+
+.dropdwn-box:hover {
+    background-color: white;
+    border: 3px solid black;
+}
+
+.dropdwn:hover .dropdwn-box {
+    display: block;
+}
