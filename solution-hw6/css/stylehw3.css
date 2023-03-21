@@ -1,0 +1,271 @@
+/* ------------------------text styles----------------------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* bolded word option */
+.product-label {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.small-underline {
+    font-size:medium;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* large sized body text */
+.normie-large {
+    text-align: right;
+    font-size: larger;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-left: 70px;
+
+}
+
+/* ------------------------titlecard----------------------- */
+.titlecard {
+    width: auto; 
+    height: 300px;
+    display: flex;
+}
+
+.titlecard-left {
+    padding: 10px;
+    width: 40%;
+}
+
+.titlecard-right {
+    width: 55%;
+    display: flex;
+}
+
+
+.titlecard-text {
+    width: 25%;
+    height: 50px;
+    text-align: right;
+    padding: 20px;
+    border-bottom: 5px solid black;
+}
+
+.titlecard-break {
+    width: 60%;
+    height: 50px;
+    text-align: right;
+    padding: 20px;
+    border-bottom: 5px solid black;
+}
+
+.titlecard-sentence {
+    height: 50px;
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+    font-size: xx-large;
+}
+
+.header {
+    height: 8px;
+    background-color: black;
+}
+
+
+.logo {
+    width: 75%;
+    height: 75%;
+}
+
+.titlecard-header {
+    width: 60%;
+    height: 3px;
+    background-color: black;
+
+}
+
+.titlecard-text:hover {
+    font-weight: bold;
+    background-color: rgb(255, 0, 102);  
+}
+
+/* -----------------------gallery----------------------------- */
+
+.gallery {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.gallery-block {
+    padding: 10px;
+    width: 33%;
+}
+
+.gallery-image {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    border: 6px solid rgb(253, 178, 203);
+    object-fit: cover;
+    display: block;
+}
+
+.roll-caption {
+    width: 400px;
+    height: 30px;
+    text-align: left;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.gallery-left:hover {
+    background-color: rgb(255, 0, 102);
+    font-weight: bold;
+}
+
+.gallery-middle:hover {
+    background-color: rgb(255, 0, 102);
+    font-weight: bold;
+}
+
+.gallery-right:hover {
+    background-color: rgb(255, 0, 102);
+    font-weight: bold;
+}
+
+/* ---------------------------detail page------------------------------ */
+
+select {
+	padding:  10px;
+}
+
+.product-wrapper img {
+	width: 400px;
+	margin-right: 20px;
+}
+
+#customize {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-basis: 30%;
+}
+
+.product-wrapper select {
+	width:  100%;
+}
+
+#add-cart {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#add-cart span {
+	font-weight:  bold;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#add-cart span.highlight {
+	border: 1px solid black;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 150px;
+	display: inline-block;
+}
+
+.product-image {
+    border: 3px solid rgb(253, 178, 203);
+    display: flex;
+}
+
+.container {
+	padding-left:  10%;
+	padding-right:  10%;
+	padding-top:  80px;
+	display: flex;
+}
+
+
+/* ---------------------------hw corrections------------------- */
+.container {
+	flex-direction: column;
+	padding-left: 40%;
+}
+
+.cart-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cart-item {
+	flex-basis: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.item-detail {
+	flex: 1 0 auto;
+	margin-left: 30px;
+}
+
+#item-listing {
+	border-bottom:  5px solid black;
+	padding-bottom:  20px;
+}
+
+.cart-item img {
+	width: 200px;
+    border: 3px solid rgb(253, 178, 203);
+}
+
+.item-price {
+	padding-top: 50px;
+}
+
+p.remove {
+	text-decoration: underline;
+	font-weight:  bold;
+	cursor: pointer;
+}
+
+.checkout-info {
+	border-top: 5px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+
+.whitespace {
+	flex-basis: 200px;
+}
+
+.total-price {
+	text-align: right;
+}
+
+.checkout-info button {
+	float:  right;
+	width:  150px;
+	padding: 20px;
+	cursor: pointer;
+    background-color: rgb(255, 0, 102);
+    color: white;
+}

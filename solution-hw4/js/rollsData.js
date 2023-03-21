@@ -33,6 +33,8 @@ const rollType = params.get("roll");
 
 console.log(rollType);
 
+
+
 const headerElement = document.querySelector('#roll-header-text');
 headerElement.innerText = rollType + ' cinnamon roll';
 

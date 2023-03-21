@@ -34,7 +34,6 @@ a {
     display: flex;
     margin-left: 70px;
 
-
 }
 
 /* ------------------------titlecard----------------------- */
@@ -86,8 +85,8 @@ a {
 
 
 .logo {
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
 }
 
 .titlecard-header {
@@ -153,79 +152,36 @@ a {
 
 /* ---------------------------detail page------------------------------ */
 
-.detail {
-    width: auto;
-    height: 800px;
-    display: flex;
-    margin-top: 20px;
-    padding: 30px;
-}
-
-.detail-left {
-    width: 60%;
-    padding: 10px;
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-    border: 10px solid rgb(253, 178, 203);
-    object-fit: cover;
-    display: block;
-}
-
-.detail-right {
-    width: 20%;
-    height: 600px;
-}
-
-
-.detail-description {
-    width:  400px;
-    height: 80px;
-    margin: 0 auto;
-    font-size: x-large;
-}
-
-.dropdown {
-    width: 400px;
-    height: 200px;
-    margin: 0 auto;
-    font-size: x-large;
-    margin-bottom: 30px;
-}
-
 select {
-    padding: 10px;
-    width: 400px;
-    height: 50px;
-    font-size:medium;
+	padding:  10px;
 }
 
-.detail-checkout {
-    width: 400px;
-    height: 50px;
-    margin: 0 auto;
-    display: flex;
+.product-wrapper img {
+	width: 400px;
+	margin-right: 20px;
+}
 
+#customize {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-basis: 30%;
+}
+
+.product-wrapper select {
+	width:  100%;
 }
 
 #add-cart {
 	display: flex;
 	justify-content: flex-end;
-    margin-top: 50px;
 }
 
 #add-cart span {
-	font-weight: bold;
+	font-weight:  bold;
 	padding: 10px;
 	text-align: center;
 	cursor: pointer;
-
-}
-
-.add-cart:hover {
-    font-weight: bold;
-    background-color: rgb(255, 0, 102);
-    color: white;
 }
 
 #add-cart span.highlight {
@@ -235,85 +191,81 @@ select {
 	width: 150px;
 	display: inline-block;
 }
-/* ------------------------------cart-------------------------------------- */
-.cart {
-    width: auto - 500px;
-    height: 600px;
-    margin-left: 500px;
-}
 
-.purchase-row {
-    height: 200px;
-    padding: 10px;
-    display: flex;
-}
-
-.checkout-row {
-    height: 50px;
-    padding: 10px;
-    display: flex;
-}
-
-.purchase-photo {
-    width: 200px;
-    height: 200px;
+.product-image {
     border: 3px solid rgb(253, 178, 203);
-    box-sizing: border-box;
-    object-fit: cover;
     display: flex;
 }
 
-.purchase-text {
-    width: 400px;
-    height: 190px;
-    margin-left: 50px;
-    padding: 10px;
-    font-size: x-large;
-    display: flex;
+.container {
+	padding-left:  10%;
+	padding-right:  10%;
+	padding-top:  80px;
+	display: flex;
 }
 
-.purchase-price {
-    width: 100px;
-    height: 190px;
-    padding: 10px;
-    margin-left: 100px;
-    font-size: x-large;
-    display: flex;
+
+/* ---------------------------hw corrections------------------- */
+.container {
+	flex-direction: column;
+	padding-left: 40%;
 }
 
-.purchase-remove {
-    height: 20px;
-    font-size: small;
-    text-decoration: underline;
-    padding: 5px;
-    margin-left: 10px;
+.cart-wrapper {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.division {
-    height: 5px;
-    margin-left: 10px;
-    margin-top: 10px;
-    background-color: black;
+.cart-item {
+	flex-basis: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
-.purchase-total {
-    width: 200px;
-    display: flex;
+.item-detail {
+	flex: 1 0 auto;
+	margin-left: 30px;
 }
 
-.purchase-button {
-    width: 160px;
-    height: 50px;
-    padding: 10px;
-    margin-left: 25px;
-    box-sizing: border-box;
-    border: 3px solid black;
-    font-size: x-large;
-    display: flex;
+#item-listing {
+	border-bottom:  5px solid black;
+	padding-bottom:  20px;
 }
 
-.purchase-button:hover {
-    font-weight: bold;
+.cart-item img {
+	width: 200px;
+    border: 3px solid rgb(253, 178, 203);
+}
+
+.item-price {
+	padding-top: 50px;
+}
+
+p.remove {
+	text-decoration: underline;
+	font-weight:  bold;
+	cursor: pointer;
+}
+
+.checkout-info {
+	border-top: 5px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+
+.whitespace {
+	flex-basis: 200px;
+}
+
+.total-price {
+	text-align: right;
+}
+
+.checkout-info button {
+	float:  right;
+	width:  150px;
+	padding: 20px;
+	cursor: pointer;
     background-color: rgb(255, 0, 102);
     color: white;
 }

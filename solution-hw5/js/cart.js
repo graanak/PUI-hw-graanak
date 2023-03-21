@@ -1,101 +1,119 @@
+const glazingPrices = {
+    "Keep original" : 0.0,
+    "Sugar milk" : 0.0,
+    "Vanilla milk" : 0.50,
+    "Double chocolate" : 1.50
+};
+
+const packPrices = {
+    "1" : 1, "3" : 3, "6" : 5, "12" : 10
+};
+
+// the cart array
+const cartItems = [];
+// used to create unique ID for each role, based on the order in which it's added to cart
+let rollCounter = 0;
+
 class Roll {
-    constructor(imageURL, rollType, rollGlazing, packSize, basePrice) {
-		this.noteImageURL = imageURL;
+    constructor(rollType, rollGlazing, packSize, rollPrice) {
         this.type = rollType;
         this.glazing =  rollGlazing;
         this.size = packSize;
-        this.basePrice = basePrice;
-
-		this.element= null;
+        this.basePrice = rollPrice;
+        this.calculatedPrice = (this.basePrice + glazingPrices[this.glazing]) * packPrices[this.size];
     }
 }
 
-
-const rollSet = new Set();
-
-function addRollSet(imageURL, rollType, rollGlazing, packSize, basePrice){
-    const cartObj = new Roll(imageURL, rollType, rollGlazing, packSize, basePrice);
-    rollSet.add(cartObj);
-    return cartObj;
+// initialize the cart with 4 rolls
+function initializeCart() {
+    cartItems.push(new Roll("Original", "Sugar milk", 1, rolls["Original"]["basePrice"]));
+    cartItems.push(new Roll("Walnut", "Vanilla milk", 12, rolls["Walnut"]["basePrice"]));
+    cartItems.push(new Roll("Raisin", "Sugar milk", 3, rolls["Raisin"]["basePrice"]));
+    cartItems.push(new Roll("Apple", "Keep original", 3, rolls["Apple"]["basePrice"]));
 }
 
-for (const cartObj of rollSet){
-    console.log(cartObj);
-    createElement(cartObj);
+// add a Roll instance to the DOM
+// also register a function to remove this roll when the "Remove" link is clicked
+function addRollToPage(roll) {
+    const imagePath = `images/products/${rolls[roll.type]["imageFile"]}`;
+    // HTML template for a new Roll item
+    const htmlContent = `
+        <div class="cart-item" id="roll-${rollCounter}">
+            <div>
+                <img class="product-image" src="${imagePath}">
+                <p class="remove">Remove</p>
+            </div>
+            <div class="item-detail">
+                <p>${roll.type} Cinnamon Roll</p>
+                <p>${roll.glazing}</p>
+                <p>Pack Size: ${roll.size}</p>
+            </div>
+            <div class="item-price">
+                <p>$ ${roll.calculatedPrice.toFixed(2)}</p>
+            </div>
+        </div>
+    `;
+    const cartContainer = document.querySelector(".cart-wrapper");
+    const template = document.createElement("template");
+    template.innerHTML = htmlContent.trim();
+    const cartItemElement = template.content;
+
+    // register function to remove this roll
+    let currentRollCounter = rollCounter;
+    cartItemElement.querySelector(".remove").onclick = function() {
+        cartContainer.querySelector(`#roll-${currentRollCounter}`).remove();
+        cartItems.splice(cartItems.indexOf(roll), 1);
+        updateTotalPrice();
+    }
+
+    cartContainer.appendChild(cartItemElement);
+    rollCounter += 1;
+
+    saveToLocalStorage();
 }
 
-function createElement(cartObj){
-    const template = document.querySelector('#cart-template');
-    // my code wouldn't recognize .content so  I had to use .textContent
-    const clone = template.textContent.cloneNode(true);
-
-    cartObj.element = clone.querySelector('.cartObj');
-
-    const btnDelete = cartObj.element.querySelector('delete-x');
-    btnDelete.addEventListener('click', () => {
-        deleteCart(cartObj);
-    })
-
-    const cartListElement = document.querySelector('#cart-list');
-    cartListElement.prepend(cartObj.element);
-
-    updateElement(cartObj);
-
+// update the total price field based on the current cart
+function updateTotalPrice() {
+    let totalPrice = 0;
+    cartItems.forEach(roll => totalPrice += roll.calculatedPrice);
+    const totalPriceElement = document.querySelector(".total-price");
+    totalPriceElement.innerText = "$ " + totalPrice.toFixed(2);
 }
 
-function updateElement(cartObj) {
-    const rollImageElement = cartObj.element.querySelector('.cart-thumbnail');
-    const rollTypeElement = cartObj.element.querySelector('.cart-type');
-    const rollGlazingElement = cartObj.element.querySelector('.cart-glazing');
-    const rollPackElement = cartObj.element.querySelector('.cart-pack');
-    const rollPriceElement = cartObj.element.querySelector('.cart-price');
+initializeCart();
+cartItems.forEach(addRollToPage);
+updateTotalPrice();
 
-    rollImageElement.src = roll.noteImageURL;
-    rollTypeElement.src = roll.rollType;
-    rollGlazingElement.src = roll.rollGlazing;
-    rollPackElement.src = roll.packSize;
-    rollPriceElement.src = roll.basePrice;
+// saving cart to local storage -------------------------------------------
+
+function saveToLocalStorage() {
+    const cartArray = Array.from(cart);
+    console.log(cartArray);
+
+    const cartArrayString = JSON.stringify(cartArray);
+    console.log(cartArrayString);
+
+    localStorage.setItem('storedcart', cartArrayString);
+}
+
+function retrieveFromLocalStorage(){
+    const cartArrayString = localStorage.getItem('storedcart');
+
+    const cartArray = JSON.parse(cartArrayString);
+
+    for (const cartData of cartArray){
+        const cart = addRollToPage(cartData.type, cartData.glazing, cartData.size, cartData.basePrice);
+        createElement(cart);   
+    }
+
+    console.log(cartArray);
     
 }
 
-// deleting the cart items 
-
-function deleteCart(cartObj){
-    cartObj.element.remove();
-    rollSet.delete(cartObj);
+if(localStorage.getItem('storedcart') != null) {
+    retrieveFromLocalStorage();
+    console.log('retrieving');
 }
 
-// cart objects-----------------
 
-const cartObjOne = addRollSet( 
-    "images/products/original-cinnamon-roll.png",
-    "0riginal",
-    "Sugar milk",
-    "1",
-    "$2.49"
-);
-
-const cartObjTwo = addRollSet( 
-    "images/products/walnut-cinnamon-roll.png",
-    "Walnut",
-    "Vanilla milk",
-    "2",
-    "$39.90"
-);
-
-const cartObjThree = addRollSet( 
-    "images/products/raisin-cinnamon-roll.png",
-    "Raisin",
-    "Sugar milk",
-    "3",
-    "$8.97"
-);
-
-const cartObjFour = addRollSet( 
-    "images/products/apple-cinnamon-roll.png",
-    "Apple",
-    "Keep original",
-    "3",
-    "$10.47"
-);
-
+updateTotalPrice();
